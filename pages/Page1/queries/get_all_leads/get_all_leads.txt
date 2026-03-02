@@ -1,0 +1,15 @@
+SELECT 
+    leads.id AS "מזהה_ליד",
+    leads.updated_at AS "תאריך",
+    customers.full_name AS "שם_הלקוח",
+    customers.identity_number AS "תעודת_זהות",
+    partners.name AS "מקור_הליד",
+    leads.main_status AS "סטטוס"
+FROM leads
+LEFT JOIN customers ON leads.customer_id = customers.id
+LEFT JOIN partners ON leads.partner_id = partners.id
+WHERE 
+    -- נשאיר רק את החיפוש החופשי (שם או ת"ז)
+    (customers.full_name ILIKE '%{{inp_search.text}}%' 
+     OR customers.identity_number LIKE '%{{inp_search.text}}%' 
+     OR '{{inp_search.text}}' = '')
