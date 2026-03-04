@@ -1,4 +1,5 @@
 {
+  "gitSyncId": "6990e16e050ef65495aa53dc_eccb14f4-881d-4cde-b3de-105e153c0795",
   "unpublishedPage": {
     "layouts": [
       {
@@ -25,8 +26,6 @@
         }
       }
     ],
-    "icon": "bar-chart",
-    "isDefault": true,
     "name": "דשבורד",
     "slug": "dashboard"
   }
