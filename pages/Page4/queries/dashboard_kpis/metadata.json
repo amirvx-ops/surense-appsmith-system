@@ -1,4 +1,5 @@
 {
+  "gitSyncId": "6990e16e050ef65495aa53dc_6c172efc-e503-4c36-af12-ddc94315eaa5",
   "id": "Page4_dashboard_kpis",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
@@ -7,7 +8,11 @@
       "body": "SELECT \n    (SELECT COUNT(*) FROM leads) AS total_leads,\n    (SELECT COUNT(*) FROM leads WHERE main_status = 'New') AS new_leads,\n    (SELECT COUNT(*) FROM leads WHERE closing_amount > 0) AS total_closings,\n    (SELECT COALESCE(SUM(closing_amount), 0) FROM leads WHERE closing_amount > 0) AS total_closing_amount,\n    (SELECT COALESCE(SUM(agent_appointment_amount), 0) FROM leads) AS total_appointment_amount,\n    (SELECT COUNT(*) FROM leads WHERE lead_passed = TRUE) AS total_leads_passed,\n    (SELECT COUNT(*) FROM leads WHERE deal_closed = 'כן') AS total_deals_closed,\n    (SELECT COUNT(*) FROM leads WHERE main_status = 'נויד') AS total_ported,\n    (SELECT COALESCE(SUM(total_amount), 0) FROM leads WHERE main_status = 'נויד') AS total_ported_amount",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
-      "pluginSpecifiedTemplates": [{ "value": false }],
+      "pluginSpecifiedTemplates": [
+        {
+          "value": false
+        }
+      ],
       "timeoutInMillisecond": 10000
     },
     "confirmBeforeExecute": false,
@@ -17,7 +22,11 @@
       "name": "Supabase",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [{ "key": "body" }],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "dashboard_kpis",
     "pageId": "Page4",
     "runBehaviour": "AUTOMATIC",

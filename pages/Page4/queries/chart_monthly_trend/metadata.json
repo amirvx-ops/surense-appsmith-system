@@ -1,4 +1,5 @@
 {
+  "gitSyncId": "6990e16e050ef65495aa53dc_624c16ce-8911-459f-a0b2-f6360997e278",
   "id": "Page4_chart_monthly_trend",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
@@ -7,7 +8,11 @@
       "body": "SELECT TO_CHAR(DATE_TRUNC('month', created_at), 'MM/YYYY') AS month,\n    COUNT(*) AS new_leads,\n    COUNT(CASE WHEN closing_amount > 0 THEN 1 END) AS closings,\n    COUNT(CASE WHEN main_status = 'נויד' THEN 1 END) AS ported\nFROM leads WHERE created_at >= CURRENT_DATE - INTERVAL '12 months'\nGROUP BY DATE_TRUNC('month', created_at) ORDER BY DATE_TRUNC('month', created_at)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
-      "pluginSpecifiedTemplates": [{ "value": false }],
+      "pluginSpecifiedTemplates": [
+        {
+          "value": false
+        }
+      ],
       "timeoutInMillisecond": 10000
     },
     "confirmBeforeExecute": false,
@@ -17,7 +22,11 @@
       "name": "Supabase",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [{ "key": "body" }],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "chart_monthly_trend",
     "pageId": "Page4",
     "runBehaviour": "AUTOMATIC",

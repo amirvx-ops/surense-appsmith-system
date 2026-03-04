@@ -1,4 +1,5 @@
 {
+  "gitSyncId": "6990e16e050ef65495aa53dc_2c275884-4386-4c03-a0ab-2c4ab8f0a12c",
   "id": "Page4_chart_by_source",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
@@ -7,7 +8,11 @@
       "body": "SELECT p.name AS source,\n    COUNT(*) AS total,\n    COUNT(CASE WHEN l.lead_passed = TRUE THEN 1 END) AS passed,\n    COUNT(CASE WHEN l.deal_closed = 'כן' THEN 1 END) AS closed,\n    COALESCE(SUM(l.closing_amount), 0) AS revenue\nFROM leads l LEFT JOIN partners p ON l.partner_id = p.id\nGROUP BY p.name ORDER BY total DESC",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
-      "pluginSpecifiedTemplates": [{ "value": false }],
+      "pluginSpecifiedTemplates": [
+        {
+          "value": false
+        }
+      ],
       "timeoutInMillisecond": 10000
     },
     "confirmBeforeExecute": false,
@@ -17,7 +22,11 @@
       "name": "Supabase",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [{ "key": "body" }],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "chart_by_source",
     "pageId": "Page4",
     "runBehaviour": "AUTOMATIC",

@@ -1,4 +1,5 @@
 {
+  "gitSyncId": "6990e16e050ef65495aa53dc_15ae5ce8-1329-4327-86b0-6e5dbb9cf680",
   "id": "Page4_attention_needed",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
@@ -7,7 +8,11 @@
       "body": "SELECT c.full_name AS שם, c.phone AS טלפון, p.name AS מקור,\n    l.main_status AS סטטוס, l.assigned_agent AS מטפל,\n    TO_CHAR(l.updated_at, 'DD/MM/YYYY') AS עדכון_אחרון,\n    EXTRACT(DAY FROM NOW() - l.updated_at)::integer AS ימים_ללא_עדכון\nFROM leads l LEFT JOIN customers c ON l.customer_id = c.id LEFT JOIN partners p ON l.partner_id = p.id\nWHERE l.main_status NOT IN ('נויד','לא רלוונטי','לא מעוניין','לא ניתן לשפר','סוכן')\n    AND l.main_status NOT LIKE 'סגור%'\n    AND l.updated_at < NOW() - INTERVAL '7 days'\nORDER BY l.updated_at ASC LIMIT 20",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
-      "pluginSpecifiedTemplates": [{ "value": false }],
+      "pluginSpecifiedTemplates": [
+        {
+          "value": false
+        }
+      ],
       "timeoutInMillisecond": 10000
     },
     "confirmBeforeExecute": false,
@@ -17,7 +22,11 @@
       "name": "Supabase",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [{ "key": "body" }],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "attention_needed",
     "pageId": "Page4",
     "runBehaviour": "AUTOMATIC",
